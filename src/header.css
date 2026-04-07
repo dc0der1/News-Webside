@@ -1,0 +1,98 @@
+/* @import "tailwindcss"; */
+
+header {
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    background-color: white;
+}
+
+.top-header {
+    background-color: #101828;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.top-header > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-size: small;
+    width: 50%;
+}
+
+.top-header-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.top-header-btns > button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: small;
+}
+
+.top-header-btns > button:first-child {
+    margin-right: 10px;
+}
+
+.top-header-btns > button:hover {
+    color: hsl(0, 0%, 85%);
+    cursor: pointer;
+}
+
+/* MIDDLE HEADER SECTION */
+.middle-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.middle-header > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.middle-header > div > svg {
+    padding: 5px;
+}
+
+.middle-header > div > svg:hover {
+    background-color: hsl(0, 0%, 85%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.middle-header > div > h1 > span {
+    color: red;
+}
+
+/* BOTTOM HEADER SECTION */
+.bottom-header {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-header > div {
+    width: 50%;
+}
+
+.bottom-header > div > nav > a {
+    text-decoration: none;
+    color: black;
+    padding: 2px;
+}
+
+.bottom-header > div > nav > a:hover {
+    color: red;
+}

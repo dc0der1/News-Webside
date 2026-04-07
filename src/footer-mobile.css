@@ -1,0 +1,12 @@
+@media (max-width: 667px) {
+    footer > div {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        justify-self: center;
+    }
+
+    footer > div > .subscribe > input {
+        width: max-content;
+    }
+}

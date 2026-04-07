@@ -1,0 +1,82 @@
+@media (max-width: 667px) {
+    #main-and-aside, 
+    #main-and-aside > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main-and-aside > div {
+        width: 100%;
+    }
+
+    #main-and-aside > div > main {
+        width: 100%;
+    }
+
+    #main-and-aside > div > main > .hero {
+        display: flex;
+        background-image: url("./assets/Hero.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        color: white;
+        border-radius: 10px;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        cursor: pointer;
+        transition: all 1s;
+        justify-self: center;
+    }
+
+    #main-and-aside > div > main > .hero > * {
+        margin-left: 10px;
+    }
+
+    #main-and-aside > div > main > .hero > .hero-author {
+        margin-bottom: 10px !important;
+    }
+
+    #main-and-aside > div > main > .featured {
+        width: 95%;
+        justify-self: center;
+    }
+
+    #main-and-aside > div > main > .featured > .flex:nth-child(2), 
+    #main-and-aside > div > main > .featured > .flex:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main-and-aside > div > main > .featured > .flex > h2 {
+        width: 150%;
+    }
+
+    #main-and-aside > div > main > .latest-news {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        width: 95%;
+    }
+
+    #main-and-aside > div > main > .trending-now {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 85%;
+        justify-self: center;
+    }
+
+    #main-and-aside > div > main > .editor-pick {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        justify-self: center;
+    }
+
+    #main-and-aside > div > main > .editor-pick > .card > img {
+        height: 200px;
+    }
+}

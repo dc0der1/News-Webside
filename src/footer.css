@@ -1,0 +1,141 @@
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #101828;
+}
+
+footer > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 50%;
+    color: white;
+}
+
+footer > div > 
+.news-topic, 
+.company, 
+.help {
+    display: flex;
+    flex-direction: column;
+}
+
+footer > div > 
+.daily-post, 
+.news-topic, 
+.company, 
+.help, 
+.subscribe {
+    border-bottom: solid 1px hsla(220, 43%, 21%);
+}
+
+footer > div > * {
+    padding: 20px 20px 20px 0px;
+}
+
+footer > div > .subscribe {
+    grid-column: span 4;
+}
+
+footer > div > .copyright {
+    grid-column: span 4;
+}
+
+footer > div > .daily-post > h4 {
+    font-size: large;
+}
+
+footer > div > .daily-post > svg {
+    height: 30px;
+    width: 30px;
+    stroke-color: white;
+    stroke: white;
+    stroke-width: 30px;
+    stroke-linejoin: round;
+    fill: #101828;
+    cursor: pointer;
+}
+
+footer > div > .daily-post > p {
+    font-size: smaller;
+    color: hsl(0, 0%, 75%);
+}
+
+footer > div > 
+.news-topic > a, 
+.company > a, 
+.help > a {
+    text-decoration: none;
+    color: hsl(0, 0%, 75%);
+    margin: 10px 0px;
+    transition: all .2s;
+}
+
+footer > div > 
+.news-topic > a:hover, 
+.company > a:hover, 
+.help > a:hover {
+    color: white;
+}
+
+footer > div > 
+.news-topic > .section-title, 
+.company > .section-title, 
+.help > .section-title {
+    font-weight: bold;
+}
+
+footer > div > .subscribe > .section-title {
+    font-weight: bold;
+}
+
+footer > div > .subscribe > p:nth-child(2) {
+    display: flex;
+    align-items: center;
+    font-size: smaller;
+}
+
+footer > div > .subscribe > p > svg {
+    height: 24px;
+    width: 24px;
+    stroke-width: 20px;
+    fill: white;
+    transform: translateY(-1px);
+}
+
+footer > div > .subscribe > 
+input, button {
+    padding: 10px 0px;
+}
+
+footer > div > .subscribe > input::placeholder {
+    color: white;
+}
+
+footer > div > .subscribe > input {
+    background-color: #1e2939;
+    outline: none;
+    padding-left: 10px;
+    border: solid 1px rgba(255, 255, 255, 0.199);
+    border-radius: 5px;
+    color: white;
+    width: 25%;
+}
+
+footer > div > .subscribe > button {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-weight: bolder;
+    transition: all .2s;
+}
+
+footer > div > .subscribe > button:hover {
+    background-color: hsl(0, 100%, 45%);
+}
+
+footer > div > .copyright > p {
+    font-size: small;
+    color: hsl(0, 0%, 50%);
+}
