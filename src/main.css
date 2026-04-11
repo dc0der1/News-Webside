@@ -1,4 +1,102 @@
-#main-and-aside {
+@import "tailwindcss";
+
+/* FEATURED CARDS */
+@layer components {
+    .featured-card {
+        @apply w-full cursor-pointer;
+    }
+
+    .featured-card-img {
+        @apply h-65.5 w-full rounded-[10px] transition-all duration-500 group-hover:scale-[1.02] overflow-hidden;
+    }
+
+    .featured-card-category {
+        @apply text-[small] text-[red] mt-3;
+    }
+
+    .featured-card-title {
+        @apply text-[large] font-bold group-hover:text-red-500;
+    }
+
+    .featured-card-description {
+        @apply text-[small] text-[hsl(0,0%,45%)] mb-2.5;
+    }
+
+    .featured-card-author {
+        @apply text-[small] text-[hsl(0,0%,45%)];
+    }
+}
+
+/* LATEST NEWS CARDS */
+@layer components {
+    .latest-card {
+        @apply cursor-pointer h-min;
+    }
+
+    .latest-card-img {
+        @apply w-37.5 h-25 ml-5 rounded-[5px] group-hover:scale-[1.03] transition-all duration-200;
+    }
+
+    .latest-card-category {
+        @apply text-[red] ml-2.5;
+    }
+
+    .latest-card-title {
+        @apply ml-2.5 font-bold group-hover:text-[red] transition-all duration-200;
+    }
+
+    .latest-card-time {
+        @apply ml-2.5 text-[small] text-[hsl(0,0%,55%)];
+    }
+}
+
+/* TRENDING CARDS */
+@layer components {
+    .trending-card {
+        @apply ml-5 border-l-4 border-l-[red] mb-5;
+    }
+    
+    .trending-card-number {
+        @apply text-[xx-large] font-bold ml-2.5 opacity-50;
+    }
+
+    .trending-card-title {
+        @apply font-bold ml-2.5;
+    }
+
+    .trending-card-description {
+        @apply text-[small] ml-2.5 text-[hsl(0,0%,45%)];
+    }
+}
+
+/* EDITORS CARDS */
+@layer components {
+    .editor-card {
+        cursor: pointer;
+    }
+
+    .editor-card-img {
+        @apply w-full h-37.5 rounded-[5px] transition-all duration-500 group-hover:scale-[1.03];
+    }
+
+    .editor-card-topic {
+        @apply text-[small] text-[red] mt-3;
+    }
+
+    .editor-card-title {
+        @apply font-bold group-hover:text-[red] transition-all duration-500;
+    }
+
+    .editor-card-description {
+        @apply text-[small] text-[hsl(0,0%,45%)];
+    }
+
+    .editor-card-author {
+        @apply text-[small] text-[hsl(0,0%,65%)];
+    }
+}
+
+/* #main-and-aside {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,7 +129,7 @@ main > .hero:hover {
     background-size: 170%;
 }
 
-#main-and-aside > div > aside {
+#main-and-aside > div > aside { // COMING BACK
     width: 100%;
     margin-left: 100px;
 }
@@ -62,6 +160,8 @@ main > .hero:hover {
     margin-bottom: 50px !important;
     font-size: small;
 }
+
+// TAILWINDING HERE DONE
 
 main > .featured {
     display: flex;
@@ -132,6 +232,8 @@ main > .featured > .flex > .card:hover > .card-title {
     color: red;
 }
 
+// TAILWINDING HERE
+
 main > .latest-news {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -200,12 +302,12 @@ main > .latest-news > .card > .card-time {
 main > .trending-now {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: red;
-    color: white;
+    background-color: white;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 3px 0px #e5e7eb;
+    border: solid 1px red;
 }
 
 main > .trending-now > h2 {
@@ -215,7 +317,7 @@ main > .trending-now > h2 {
 
 main > .trending-now > .card {
     margin-left: 20px;
-    border-left: 4px solid white;
+    border-left: 4px solid red;
 }
 
 main > .trending-now > .card > * {
@@ -235,7 +337,7 @@ main > .trending-now > .card > .card-title {
 
 main > .trending-now > .card > .card-description {
     font-size: small;
-    color: hsl(0, 0%, 95%);
+    color: hsl(0, 0%, 45%);
 }
 
 main > .editor-pick {
@@ -284,4 +386,4 @@ main > .editor-pick > .card > .card-description {
 main > .editor-pick > .card > .card-author {
     font-size: small;
     color: hsl(0, 0%, 65%);
-}
+} */

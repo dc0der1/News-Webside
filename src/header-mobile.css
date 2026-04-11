@@ -2,15 +2,14 @@
     .top-header {
         display: flex;
         flex-direction: row;
-        justify-content: start;
-        width: 100%;
     }
 
     .top-header > div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
+        width: 95%;
+        justify-self: center;
     }
 
     .top-header-btns > button {
@@ -23,18 +22,17 @@
 
     .middle-header {
         display: flex;
-        justify-content: start;
         width: 100%;
     }
 
     .middle-header > div {
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 95%;
+        justify-self: center;
     }
 
-    .middle-header > div > h1 {
-        font-size: x-large;
+    .middle-header > div > .webside-title {
         display: flex;
         align-items: center;
     }
@@ -57,7 +55,7 @@
     }
 
     .bottom-header > div > nav > a {
-        margin-top: 15px;
+        margin: 15px 0;
     }
 }
 

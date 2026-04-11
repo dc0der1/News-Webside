@@ -1,4 +1,36 @@
-aside {
+@import "tailwindcss";
+
+@layer components {
+    .categories-li {
+        @apply tracking-wide flex justify-between rounded-[5px] hover:bg-[hsl(0,0%,90%)] transition-all duration-200 py-1 my-2.5 cursor-pointer;
+    }
+
+    .categories-topic {
+        @apply group-hover:text-[red] ml-2.5 self-center;
+    }
+
+    .categories-number {
+        @apply bg-[hsl(0,0%,95%)] py-1.25 px-2.5 rounded-[5px] mr-2.5;
+    }
+}
+
+@layer components {
+    .social-media-links-a {
+        @apply flex flex-row gap-2 items-center justify-center transition-all duration-200 text-white py-2.5 my-0.75 mx-0.5 rounded-[5px];
+    }
+
+    .social-media-links-svg {
+        @apply scale-[3] h-2.5 w-2.5 ml-2.5 fill-white pr-0.5;
+    }
+}
+
+@layer components {
+    .popular-tags-btns {
+        @apply p-2.5 border-none rounded-[100%] cursor-pointer transition-all duration-200 hover:bg-[red] hover:text-white bg-gray-200 text-[small] w-fit my-1;
+    }
+}
+
+/* aside {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -63,7 +95,7 @@ aside > .most-popular > ol > li > .column > .views {
 }
 
 /* ASIDE CATEGORIES */
-aside > .categories {
+/* aside > .categories {
     background-color: white;
     border-radius: 10px;
     box-shadow: 1px 1px 3px 0px #e5e7eb;
@@ -169,6 +201,8 @@ aside > .social-media-links > p {
     border-bottom: solid 1px #e5e7eb;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 aside > .social-media-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -255,7 +289,7 @@ aside > .popular-tags {
 aside > .popular-tags > button {
     padding: 10px;
     border: none;
-    border-radius: 40%;
+    border-radius: 100%;
     cursor: pointer;
     transition: all .2s;
 }
@@ -267,4 +301,4 @@ aside > .popular-tags > button:hover {
 
 aside > .popular-tags > h3 {
     border-bottom: 1px solid #e5e7eb;
-}
+} */
