@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+/* HEADER VARIABLE */
+@layer components {
+    .nav-link {
+        @apply no-underline text-black mr-6 transition duration-100 hover:text-[red];
+    }
+}
+
+/* MAIN VARIABLE */
+/* FEATURED CARDS */
+@layer components {
+    .featured-card {
+        @apply w-full cursor-pointer;
+    }
+
+    .featured-card-img {
+        @apply h-65.5 w-full rounded-[10px] transition-all duration-500 group-hover:scale-[1.02] overflow-hidden;
+    }
+
+    .featured-card-category {
+        @apply text-[small] text-[red] mt-3;
+    }
+
+    .featured-card-title {
+        @apply text-[large] font-bold group-hover:text-red-500;
+    }
+
+    .featured-card-description {
+        @apply text-[small] text-[hsl(0,0%,45%)] mb-2.5;
+    }
+
+    .featured-card-author {
+        @apply text-[small] text-[hsl(0,0%,45%)];
+    }
+}
+
+/* LATEST NEWS CARDS */
+@layer components {
+    .latest-card {
+        @apply cursor-pointer h-min;
+    }
+
+    .latest-card-img {
+        @apply w-37.5 h-25 ml-5 rounded-[5px] group-hover:scale-[1.03] transition-all duration-200;
+    }
+
+    .latest-card-category {
+        @apply text-[red] ml-2.5;
+    }
+
+    .latest-card-title {
+        @apply ml-2.5 font-bold group-hover:text-[red] transition-all duration-200;
+    }
+
+    .latest-card-time {
+        @apply ml-2.5 text-[small] text-[hsl(0,0%,55%)];
+    }
+}
+
+/* TRENDING CARDS */
+@layer components {
+    .trending-card {
+        @apply ml-5 border-l-4 border-l-[red] mb-5;
+    }
+    
+    .trending-card-number {
+        @apply text-[xx-large] font-bold ml-2.5 opacity-50;
+    }
+
+    .trending-card-title {
+        @apply font-bold ml-2.5;
+    }
+
+    .trending-card-description {
+        @apply text-[small] ml-2.5 text-[hsl(0,0%,45%)];
+    }
+}
+
+/* EDITORS CARDS */
+@layer components {
+    .editor-card {
+        cursor: pointer;
+    }
+
+    .editor-card-img {
+        @apply w-full h-37.5 rounded-[5px] transition-all duration-500 group-hover:scale-[1.03];
+    }
+
+    .editor-card-topic {
+        @apply text-[small] text-[red] mt-3;
+    }
+
+    .editor-card-title {
+        @apply font-bold group-hover:text-[red] transition-all duration-500;
+    }
+
+    .editor-card-description {
+        @apply text-[small] text-[hsl(0,0%,45%)];
+    }
+
+    .editor-card-author {
+        @apply text-[small] text-[hsl(0,0%,65%)];
+    }
+}
+
+/* ASIDE VARIABLES */
+@layer components {
+    .categories-li {
+        @apply tracking-wide flex justify-between rounded-[5px] hover:bg-[hsl(0,0%,90%)] transition-all duration-200 py-1 my-2.5 cursor-pointer;
+    }
+
+    .categories-topic {
+        @apply group-hover:text-[red] ml-2.5 self-center;
+    }
+
+    .categories-number {
+        @apply bg-[hsl(0,0%,95%)] py-1.25 px-2.5 rounded-[5px] mr-2.5;
+    }
+}
+
+@layer components {
+    .social-media-links-a {
+        @apply flex flex-row gap-2 items-center justify-center transition-all duration-200 text-white py-2.5 my-0.75 mx-0.5 rounded-[5px];
+    }
+
+    .social-media-links-svg {
+        @apply scale-[3] h-2.5 w-2.5 ml-2.5 fill-white pr-0.5;
+    }
+}
+
+@layer components {
+    .popular-tags-btns {
+        @apply p-2.5 border-none rounded-[100%] cursor-pointer transition-all duration-200 hover:bg-[red] hover:text-white bg-gray-200 text-[small] w-fit my-1;
+    }
+}
+
+/* FOOTER VARIABLES */
+@layer components {
+    .footer-sections-padding {
+        @apply flex flex-col py-5 pr-5;
+    }
+
+    .footer-links-title {
+        @apply mb-2.5 font-bold;
+    }
+
+    .footer-links {
+        @apply my-2 hover:opacity-70 transition-all duration-200 w-fit;
+    }
+}

@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@layer components {
-    .nav-link {
-        @apply no-underline text-black mr-6 transition duration-100 hover:text-[red];
-    }
-}
