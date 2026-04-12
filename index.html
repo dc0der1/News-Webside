@@ -3,21 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./src/styles.css">
-
-    <!-- MOBILE CSS -->
-    <link rel="stylesheet" href="src/main-mobile.css">
-    <link rel="stylesheet" href="src/header-mobile.css">
-        <link rel="stylesheet" href="src/aside-mobile.css">
-        <link rel="stylesheet" href="src/footer-mobile.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>news-webside</title>
   </head>
+  
   <body class="font-sans">
     <div id="page">
       <!-- HEADER -->
       <header class="top-0 z-50 sticky bg-white flex flex-col border-b border-b-[#e5e7eb]">
+        <!-- TOP HEADER -->
         <section class="bg-[#101828] text-white flex justify-center py-1.5">
-          <div class="flex flex-row justify-between w-6/12 text-xs">
+          <div class="flex flex-row justify-between w-6/12 text-xs max-[667px]:flex max-[667px]:flex-row max-[667px]:justify-between max-[667px]:w-[95%]">
             <p id="current-date" class="self-center"></p>
 
             <div class="flex flex-row">
@@ -27,10 +23,11 @@
           </div>
         </section>
 
-        <section class="flex justify-center border-b border-b-[#e5e7eb]">
-          <div class="flex flex-row items-center justify-between w-6/12 py-2.5">
-            <span class="text-[2em] font-bold">
-              <svg onclick="toggleNavDisplay()" id="hamburger-menu" viewBox="0 0 100 80" width="40" height="40">
+        <!-- MIDDLE HEADER -->
+        <section class="flex justify-center border-b border-b-[#e5e7eb] max-[667px]:flex w-full">
+          <div class="flex flex-row items-center justify-between w-6/12 py-2.5 max-[667px]:flex max-[667px]:flex-row max-[667px]:w-[95%] max-[667px]:justify-between">
+            <span class="text-[2em] font-bold w-full max-[667px]:flex max-[667px]:items-center">
+              <svg class="max-[667px]:mr-1 hidden max-[667px]:flex" onclick="toggleNavDisplay()" id="hamburger-menu" viewBox="0 0 100 80" width="40" height="40">
                 <rect width="100" height="10"></rect>
                 <rect y="30" width="100" height="10"></rect>
                 <rect y="60" width="100" height="10"></rect>
@@ -43,9 +40,10 @@
           </div>
         </section>
 
-        <section id="nav-section" class="py-2.5 flex justify-center">
-          <div class="w-6/12">
-            <nav>
+        <!-- BOTTOM HEADER -->
+        <section id="nav-section" class="py-2.5 flex justify-center max-[667px]:w-full max-[667px]:justify-center">
+          <div class="w-6/12 max-[667px]:w-[95%]">
+            <nav class="max-[667px]:flex max-[667px]:flex-col">
               <a class="nav-link" href="#">World</a>
               <a class="nav-link" href="#">Business</a>
               <a class="nav-link" href="#">Politics</a>
@@ -61,22 +59,24 @@
 
       <!-- MAIN -->
       <div class="flex flex-row justify-center mt-6">
-        <div class="flex flex-row justify-between w-6/12">
+        <div class="flex flex-row justify-between w-6/12 max-[667px]:flex max-[667px]:flex-col max-[667px]:w-full">
           <main>
-            <section class="rounded-[10px] bg-[url('./assets/Hero.png')] bg-no-repeat bg-center bg-size-[150%] w-200 h-150 flex flex-col justify-end cursor-pointer transition-all duration-1000 hover:bg-size-[170%] text-[white]">
-              <p class="ml-12.5 mb-3 bg-[red] w-min p-1.25 text-[small]">TECHNOLOGY</p>
+            <!-- HERO -->
+            <section class="rounded-[10px] bg-[url('./assets/Hero.png')] bg-no-repeat bg-center bg-size-[150%] w-200 h-150 flex flex-col justify-end cursor-pointer transition-all duration-1000 hover:bg-size-[170%] text-[white] max-[667px]:w-[95%] max-[667px]:h-fit max-[667px]:bg-no-repeat max-[667px]:bg-center max-[667px]:bg-cover max-[667px]:rounded-bl-none max-[667px]:rounded-tl-none">
+              <p class="ml-12.5 mb-3 bg-[red] w-min p-1.25 text-[small] max-[667px]:mt-12.5">TECHNOLOGY</p>
               <h1 class="text-[40px] mb-3 font-bold ml-12.5">Global AI Summit Unveils <br> Groundbreaking Technology <br> Standards</h1>
               <p class="ml-12.5 mb-3 text-[hsl(0,0%,85%)]">World leaders and tech giants reach historic agreement on artificial intelligence regulation <br> and ethical frameworks.</p>
               <p class="ml-12.5 mb-12.5 text-[small] text-[hsl(0,0%,75%)]">By Sarah Johnson • 2 hours ago</p>
             </section>
 
-            <section class="flex flex-col w-full">
+            <!-- FEATURED ARTICLES SECTION -->
+            <section class="flex flex-col w-full max-[667px]:w-[95%] max-[667px]:justify-self-center">
               <div class="flex items-center gap-7.5 my-3">
                 <h2 class="w-full text-[larger] font-bold">Featured Stories</h2>
-                <a class="text-end block w-25 no-underline text-[red] hover:text-[hsl(0,100%,41%)]" href="#">View all →</a>
+                <a class="text-end block w-25 no-underline text-[red] hover:text-[hsl(0,100%,41%)] max-[667px]:w-full" href="#">View all →</a>
               </div>
 
-              <div class="flex items-center gap-7.5 mb-3">
+              <article class="flex items-center gap-7.5 mb-3 max-[667px]:flex max-[667px]:flex-col">
                 <div class="featured-card group">
                   <img src="./src/assets/business-img.png" class="featured-card-img">
                   <p class="featured-card-category">BUSINESS</p>
@@ -92,9 +92,9 @@
                   <p class="featured-card-description">Athletes from 200 countries gear up for what promises to be the most competitive games in history.</p>
                   <p class="featured-card-author">Emma Williams • 4 hours ago</p>
                 </div>
-              </div>
+              </article>
 
-              <div class="flex items-center gap-7.5 mb-3">
+              <article class="flex items-center gap-7.5 mb-3 max-[667px]:flex max-[667px]:flex-col">
                 <div class="featured-card group">
                   <img src="./src/assets/science-card.png" class="featured-card-img">
                   <p class="featured-card-category">SCIENCE</p>
@@ -110,109 +110,114 @@
                   <p class="featured-card-description">Five new sites added to the prestigious list, recognizing their outstanding universal value.</p>
                   <p class="featured-card-author">Linda Park • 6 hours ago</p>
                 </div>
-              </div>
+              </article>
             </section>
 
-            <section class="grid grid-cols-2 bg-white rounded-[10px] shadow-xl pb-5">
+            <!-- LATEST NEWS SECTION -->
+            <section class="grid grid-cols-2 bg-white rounded-[10px] shadow-xl pb-5 max-[667px]:flex max-[667px]:flex-col max-[667px]:w-[95%] max-[667px]:justify-self-center">
               <h2 class="col-span-2 m-5 text-[larger] font-bold border-b border-b-[#e5e7eb]">Latest News</h2>
-              <div class="latest-card flex group">
+              <article class="latest-card flex group max-[667px]:mb-4">
                 <img src="./src/assets/Politics-img.jpg" class="latest-card-img">
                 <div>
                   <p class="latest-card-category">POLITICS</p>
                   <p class="latest-card-title">New Climate Agreement Signed by 150 Nations</p>
                   <p class="latest-card-time">1 hour ago</p>
                 </div>
-              </div>
+              </article>
 
-              <div class="latest-card flex group">
+              <article class="latest-card flex group">
                 <img src="./src/assets/entertainment-img.png" class="latest-card-img">
                 <div>
                   <p class="latest-card-category">ENTERTAINMENT</p>
                   <p class="latest-card-title">Music Festival Announces Stellar Lineup for Summer Tour</p>
                   <p class="latest-card-time">3 hours ago</p>
                 </div>
-              </div>
+              </article>
 
-              <div class="latest-card flex group">
+              <article class="latest-card flex group">
                 <img src="./src/assets/business-img (1).png" class="latest-card-img">
                 <div>
                   <p class="latest-card-category">BUSINESS</p>
                   <p class="latest-card-title">International Trade Summit Addresses Supply Chain Issues</p>
                   <p class="latest-card-time">5 hours ago</p>
                 </div>
-              </div>
+              </article>
 
-              <div class="latest-card flex group">
+              <article class="latest-card flex group">
                 <img src="./src/assets/health-img.jpg" class="latest-card-img">
                 <div>
                   <p class="latest-card-category">HEALTH</p>
                   <p class="latest-card-title">Revolutionary Fitness Technology Changes Wellness Industry</p>
                   <p class="latest-card-time">2 hours ago</p>
                 </div>
-              </div>
+              </article>
 
-              <div class="latest-card flex group">
+              <article class="latest-card flex group">
                 <img src="./src/assets/Hero.png" class="latest-card-img">
                 <div>
                   <p class="latest-card-category">TECHNOLOGY</p>
                   <p class="latest-card-title">Tech Giants Invest Billions in Renewable Energy Projects</p>
                   <p class="latest-card-time">4 hours ago</p>
-              </div>
+                </div>
+              </article>
             </section>
 
-            <section class="grid grid-cols-3 bg-white rounded-[10px] shadow-xl border border-[red] mt-5">
+            <!-- TRENDING NOW ARTICLES SECTION -->
+            <section class="grid grid-cols-3 bg-white rounded-[10px] shadow-xl border border-[red] mt-5 max-[667px]:flex max-[667px]:flex-col max-[667px]:w-[95%] max-[667px]:justify-self-center">
               <h2 class="col-span-3 m-5 text-[larger] font-bold">Trending Now</h2>
-              <div class="trending-card">
+              <article class="trending-card">
                 <p class="trending-card-number">01</p>
                 <p class="trending-card-title">Global Summit Reaches Climate Accord</p>
                 <p class="trending-card-description">Historic agreement signed by world leaders</p>
-              </div>
+              </article>
 
-              <div class="trending-card">
+              <article class="trending-card">
                 <p class="trending-card-number">02</p>
                 <p class="trending-card-title">Tech Innovation Transforms Healthcare</p>
                 <p class="trending-card-description">AI-powered diagnostics show promise</p>
-              </div>
+              </article>
 
-              <div class="trending-card">
+              <article class="trending-card">
                 <p class="trending-card-number">03</p>
                 <p class="trending-card-title">Sports Icon Announces Retirement</p>
                 <p class="trending-card-description">End of an era for legendary athlete</p>
-              </div>
+              </article>
             </section>
 
-            <section class="grid grid-cols-3 gap-5 my-5">
+            <!-- EDITORS PICK SECTION -->
+            <section class="grid grid-cols-3 gap-5 my-5 max-[667px]:flex max-[667px]:flex-col max-[667px]:w-[95%] max-[667px]:justify-self-center">
               <h2 class="col-span-3 text-[larger] font-bold">Editor's Picks</h2>
-              <div class="editor-card group">
+              <article class="editor-card group">
                 <img src="./src/assets/business-img.png" class="editor-card-img">
                 <p class="editor-card-topic">BUSINESS</p>
                 <p class="editor-card-title">Markets Surge as Economic Indicators Show Strong...</p>
                 <p class="editor-card-description">Stock markets reach new highs amid positive economic data and investor confidence.</p>
                 <p class="editor-card-author">Michael Chen • 3 hours ago</p>
-              </div>
+              </article>
 
-              <div class="editor-card group">
+              <article class="editor-card group">
                 <img src="./src/assets/sports-card.jpg" class="editor-card-img">
                 <p class="editor-card-topic">SPORTS</p>
                 <p class="editor-card-title">Olympic Athletes Prepare for Historic International Games</p>
                 <p class="editor-card-description">Athletes from 200 countries gear up for what promises to be the most competitive games</p>
                 <p class="editor-card-author">Emma Williams • 4 hours ago</p>
-              </div>
+              </article>
 
-              <div class="editor-card group">
+              <article class="editor-card group">
                 <img src="./src/assets/science-card.png" class="editor-card-img">
                 <p class="editor-card-topic">SCIENCE</p>
                 <p class="editor-card-title">Breakthrough Discovery in Cancer Research Offers New...</p>
                 <p class="editor-card-description">Scientists announce major advancement in targeted cancer therapy with promising trial</p>
                 <p class="editor-card-author">Dr. James Martinez • 5 hours ago</p>
-              </div>
+              </article>
             </section>
           </main>
 
           <!-- ASIDE -->
-          <aside class="flex flex-col gap-5 w-full ml-25">
+          <aside class="flex flex-col gap-5 w-full ml-25 max-[667px]:ml-0 max-[667px]:w-[95%] max-[667px]:self-center">
+            <!-- MOST POPULAR -->
             <section class="bg-white shadow-xl rounded-[10px]">
-              <h3 class="mr-5 ml-5 mt-7.5 pb-5 border-b border-b-[#e5e7eb] font-bold text-[larger]">Most Popular</h3>
+              <h3 class="mr-5 ml-5 mt-7.5 border-b border-b-[#e5e7eb] font-bold text-[larger]">Most Popular</h3>
               <ol class="flex flex-col mx-5">
                 <li class="cursor-pointer mb-5 group"><span class="text-[x-large] font-bold opacity-50">01</span><div class="font-bold group-hover:text-[red] transition-all duration-200">AI Regulation Framework Approved by Senate<p class="opacity-55 text-[small]">15.2k views</p></div></li>
                 <li class="cursor-pointer mb-5 group"><span class="text-[x-large] font-bold opacity-50">02</span><div class="font-bold group-hover:text-[red] transition-all duration-200">New Study Links Diet to Mental <br> Health<p class="opacity-55 text-[small]">12.8k views</p></li>
@@ -222,6 +227,7 @@
               </ol>
             </section>
 
+            <!-- CATEGORIES SECTION -->
             <section class="bg-white rounded-[10px] shadow-xl">
               <h3 class="ml-5 mt-5 mr-5 border-b border-b-[#e5e7eb] font-bold text-[larger]">Categories</h3>
               <ul class="list-none m-5">
@@ -260,6 +266,7 @@
               </ul>
             </section>
 
+            <!-- DAILY NEWSLETTER SECTION -->
             <section class="bg-[red] text-white shadow-xl flex flex-col p-2.5 rounded-[10px]">
               <p class="text-[large] font-bold my-2.5 mx-5">Daily Newsletter</p>
               <p class="my-2.5 mx-5">Get the latest news delivered straight to <br> your inbox every morning.</p>
@@ -267,6 +274,7 @@
               <button class="my-2.5 mx-5 bg-white text-[red] border-none cursor-pointer py-2.5 hover:bg-[hsl(0,0%,95%)] transition-all duration-200">Subscribe Now</button>
             </section>
 
+            <!-- SOCIAL MEDIA SECTION -->
             <section class="grid grid-cols-2 bg-white rounded-[10px] shadow-xl items-center pb-5 px-5">
               <p class="my-5 text-[large] font-bold border-b border-b-[#e5e7eb] col-span-2">Follow Us</p>
               <a href="#" class="social-media-links-a bg-[#155dfc] hover:bg-[hsl(221,97%,44%)]">
@@ -291,6 +299,7 @@
               </a>
             </section>
 
+            <!-- POPULAR TAGS SECTION -->
             <section class="bg-white rounded-[10px] shadow-xl">
               <h3 class="mx-5 mt-5 border-b border-b-[#e5e7eb] font-bold text-[larger]">Popular Tags</h3>
               <div class="mx-5 my-5">
@@ -309,8 +318,10 @@
         </div>
       </div>
 
+      <!-- FOOTER -->
       <footer class="flex justify-center bg-[#101828]">
-        <div class="grid grid-cols-4 w-6/12 text-white">
+        <div class="grid grid-cols-4 w-6/12 text-white max-[667px]:flex max-[667px]:flex-col max-[667px]:w-[95%]">
+          <!-- DAILY POST INFO -->
           <section class="border-b border-b-[hsl(220,43%,21%)] py-5 pr-5">
             <h4 class="text-[larger] font-bold">THE <span class="text-[red]">DAILY</span> POST</h4>
             <p class="opacity-70 text-[small]">Your trusted source for breaking news, in-depth analysis, and compelling stories from around the world.</p>
@@ -324,6 +335,7 @@
             </svg>
           </section>
 
+          <!-- TOPICS -->
           <section class="footer-sections-padding border-b border-b-[hsl(220,43%,21%)]">
             <p class="footer-links-title">Sections</p>
             <a class="footer-links" href="">World</a>
@@ -336,6 +348,7 @@
             <a class="footer-links" href="">Entertainment</a>
           </section>
 
+          <!-- COMPANY INFO -->
           <section class="footer-sections-padding border-b border-b-[hsl(220,43%,21%)]">
             <p class="footer-links-title">Company</p>
             <a class="footer-links" href="">About Us</a>
@@ -345,6 +358,7 @@
             <a class="footer-links" href="">Advertise</a>
           </section>
 
+          <!-- RULES -->
           <section class="footer-sections-padding border-b border-b-[hsl(220,43%,21%)]">
             <p class="footer-links-title">Help</p>
             <a class="footer-links" href="">FAQs</a>
@@ -354,6 +368,7 @@
             <a class="footer-links" href="">Accessibility</a>
           </section>
 
+          <!-- NEWSLETTER SUBSCRIPTION -->
           <section class="py-5 pr-5 col-span-4 border-b border-b-[hsl(220,43%,21%)]">
             <p class="font-bold">Subscribe to our newsletter</p>
             <p class="flex items-center text-[smaller]">
@@ -361,10 +376,11 @@
               </svg>
               Get the latest news delivered to your inbox daily.
             </p>
-            <input class="placeholder:text-white text-white bg-[#1e2939] outline-none pl-2.5 border-[rgba(255,255,255,0.199)] rounded-[5px] w-[25%] py-2.5" type="text" placeholder="Enter your email">
-            <button class="rounded-[5px] py-2.5 px-5 bg-[red] text-white border-none font-bolder transition-all duration-200 cursor-pointer hover:bg-red-800">Subscribe</button>
+            <input class="placeholder:text-white text-white bg-[#1e2939] outline-none pl-2.5 border-[rgba(255,255,255,0.199)] rounded-[5px] w-[25%] py-2.5 max-[667px]:w-full max-[667px]:mb-5" type="text" placeholder="Enter your email">
+            <button class="rounded-[5px] py-2.5 px-5 bg-[red] text-white border-none font-bolder transition-all duration-200 cursor-pointer hover:bg-red-800 max-[667px]:w-full">Subscribe</button>
           </section>
 
+          <!-- COPYRIGHT -->
           <section class="col-span-4 text-[small] opacity-60 py-5">
             <p>© 2026 The Daily Post. All rights reserved.</p>
           </section>
@@ -378,13 +394,22 @@
       let day = "";
       const month = date.toLocaleString('default', {month: 'long'});
 
+      let nav_section = document.getElementById("nav-section");
+
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 667) {
+          nav_section.classList.remove("hidden");
+          nav_section.classList.add("flex");
+        } else {
+          nav_section.classList.add("hidden"); 
+        }
+      });
+
       function toggleNavDisplay() {
-        let nav_section = document.getElementById("nav-section");
-            if (nav_section.style.display === "flex") {
-                nav_section.style.display = "none";
-            } else {
-                nav_section.style.display = "flex";
-            }
+        if (window.innerWidth <= 667) {
+          nav_section.classList.toggle("hidden");
+          nav_section.classList.add("flex");
+        }
       }
 
       switch (date.getDay()) {

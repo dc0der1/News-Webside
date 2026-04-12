@@ -3,7 +3,7 @@
 /* HEADER VARIABLE */
 @layer components {
     .nav-link {
-        @apply no-underline text-black mr-6 transition duration-100 hover:text-[red];
+        @apply no-underline text-black mr-6 transition duration-100 hover:text-[red] max-[667px]:my-1.5;
     }
 }
 
@@ -84,7 +84,7 @@
     }
 
     .editor-card-img {
-        @apply w-full h-37.5 rounded-[5px] transition-all duration-500 group-hover:scale-[1.03];
+        @apply w-full h-37.5 rounded-[5px] transition-all duration-500 group-hover:scale-[1.03] max-[667px]:h-full;
     }
 
     .editor-card-topic {

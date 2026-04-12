@@ -1,7 +1,0 @@
-@media (max-width: 667px) {
-    #main-and-aside > div > aside {
-        margin-left: 0px;
-        width: 95%;
-        align-self: center;
-    }
-}
