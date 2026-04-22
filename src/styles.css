@@ -100,7 +100,7 @@
     }
 
     .editor-card-author {
-        @apply text-[small] text-[hsl(0,0%,65%)];
+        @apply text-[small] text-[hsl(0,0%,65%)] mt-3;
     }
 }
 
@@ -147,5 +147,47 @@
 
     .footer-links {
         @apply my-2 hover:opacity-70 transition-all duration-200 w-fit;
+    }
+}
+
+/* FORM VARIABLES */
+@layer components {
+    .form-labels {
+        @apply w-fit;
+    }
+
+    .form-inputs {
+        @apply border border-gray-300 rounded-[10px] py-3 pl-3 focus:outline-sky-600;
+    }
+
+    @keyframes shrink {
+        from { width: 100%; }
+        to { width: 0%; }
+    }
+
+    @keyframes show-toast {
+        from {
+            opacity: 0;
+            margin-right: 0;
+        }
+
+        to {
+            opacity: 1;
+            margin-right: 20px;
+        }
+    }
+
+    @keyframes hide-toast {
+        from { opacity: 1; }
+
+        to { opacity: 0; margin-right: 0;}
+    }
+
+    .show-toast-animation {
+        animation: show-toast 0.5s linear forwards, hide-toast 0.5s linear forwards 4s;
+    }
+
+    .animate-toast-progress {
+        animation: shrink 3s linear forwards 0.5s;
     }
 }
