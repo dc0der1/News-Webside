@@ -22,6 +22,7 @@ function render_article() {
     let categories = JSON.parse(localStorage.getItem("category"));
     let images = JSON.parse(localStorage.getItem("image"));
     let descriptions = JSON.parse(localStorage.getItem("description"));
+    let contents = JSON.parse(localStorage.getItem("content"));
 
     for (let i = 0; i < titles.length; i++) {
 
@@ -41,6 +42,10 @@ function render_article() {
         let article_author = document.createElement("p");
         let article_description = document.createElement("p");
 
+        let delete_article_btn = document.createElement("button");
+        delete_article_btn.textContent = `Delete Article`;
+        delete_article_btn.classList.add("bg-red-500", "text-white", "w-full", "py-1", "mt-5", "hover:bg-red-600", "transition-colors", "duration-200");
+
         article_title.textContent = titles[i];
         article_author.textContent = authors[i];
         article_category.textContent = categories[i];
@@ -55,6 +60,31 @@ function render_article() {
         article.appendChild(article_title);
         article.appendChild(article_description);
         article.appendChild(article_author);
+        article.appendChild(delete_article_btn);
+
+        delete_article_btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            titles.splice(i, 1);
+            authors.splice(i, 1);
+            categories.splice(i, 1);
+            images.splice(i, 1);
+            descriptions.splice(i, 1);
+            contents.splice(i, 1);
+
+            localStorage.setItem("title", JSON.stringify(titles));
+            localStorage.setItem("author", JSON.stringify(authors));
+            localStorage.setItem("content", JSON.stringify(contents));
+            localStorage.setItem("category", JSON.stringify(categories));
+            localStorage.setItem("description", JSON.stringify(descriptions));
+            localStorage.setItem("image", JSON.stringify(images));
+
+            article.remove();
+
+            if (titles.length === 0) {
+                section.remove();
+            }
+        });
 
         article.addEventListener("click", () => {
            localStorage.setItem("current_article_index", i);
@@ -62,8 +92,10 @@ function render_article() {
            window.location.href = "article-view.html";
         });
     }
+
+    if (titles.length === 0) {
+        section.remove();
+    }
 }
 
-if (title.length > 0) {
-    render_article();
-}
+render_article();
