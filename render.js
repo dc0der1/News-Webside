@@ -6,6 +6,7 @@ let image = localStorage.getItem("image");
 let description = localStorage.getItem("description");
 let content = localStorage.getItem("article-content");
 let main = document.querySelector("main");
+let hero = document.getElementById("hero");
 
 function render_article() {
     let section = document.createElement("section");
@@ -23,6 +24,11 @@ function render_article() {
     let images = JSON.parse(localStorage.getItem("image"));
     let descriptions = JSON.parse(localStorage.getItem("description"));
     let contents = JSON.parse(localStorage.getItem("content"));
+    let comments = JSON.parse(localStorage.getItem("comments"));
+    let likes = JSON.parse(localStorage.getItem("likes"));
+    let liked_before = JSON.parse(localStorage.getItem("liked_before"));
+    let dislikes = JSON.parse(localStorage.getItem("dislikes"));
+    let disliked_before = JSON.parse(localStorage.getItem("disliked_before"));
 
     for (let i = 0; i < titles.length; i++) {
 
@@ -64,6 +70,7 @@ function render_article() {
 
         delete_article_btn.addEventListener("click", (e) => {
             e.stopPropagation();
+            location.reload();
 
             titles.splice(i, 1);
             authors.splice(i, 1);
@@ -71,6 +78,11 @@ function render_article() {
             images.splice(i, 1);
             descriptions.splice(i, 1);
             contents.splice(i, 1);
+            comments.splice(comments[i], 1);
+            likes.splice(i, 1);
+            liked_before.splice(i, 1);
+            dislikes.splice(i, 1);
+            disliked_before.splice(i, 1);
 
             localStorage.setItem("title", JSON.stringify(titles));
             localStorage.setItem("author", JSON.stringify(authors));
@@ -78,6 +90,11 @@ function render_article() {
             localStorage.setItem("category", JSON.stringify(categories));
             localStorage.setItem("description", JSON.stringify(descriptions));
             localStorage.setItem("image", JSON.stringify(images));
+            localStorage.setItem("comments", JSON.stringify(comments));
+            localStorage.setItem("likes", JSON.stringify(likes));
+            localStorage.setItem("liked_before", JSON.stringify(liked_before));
+            localStorage.setItem("dislikes", JSON.stringify(dislikes));
+            localStorage.setItem("disliked_before", JSON.stringify(disliked_before));
 
             article.remove();
 
@@ -98,4 +115,6 @@ function render_article() {
     }
 }
 
-render_article();
+if (title.length > 0) { 
+    render_article();
+}

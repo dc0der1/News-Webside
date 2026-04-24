@@ -160,6 +160,10 @@
         @apply border border-gray-300 rounded-[10px] py-3 pl-3 focus:outline-sky-600;
     }
 
+    .form-buttons {
+        @apply flex items-center gap-2.5 bg-sky-600 text-white py-3 px-5 rounded-[10px] hover:bg-sky-700 transition-colors duration-200;
+    }
+
     @keyframes shrink {
         from { width: 100%; }
         to { width: 0%; }

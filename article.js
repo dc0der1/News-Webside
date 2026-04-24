@@ -15,22 +15,22 @@ let word_count = document.getElementById("word-counter");
 
 let handleSubmit = () => {
     if (title.value === null || title.value === "") {
-        display_toast("Title cannot be empty!", "error");
+        display_toast("Title cannot be empty!", "error", submit, handleSubmit);
         return;
     }
 
     if (author.value === null || author.value === "") {
-        display_toast("Author cannot be empty!", "error");
+        display_toast("Author cannot be empty!", "error", submit, handleSubmit);
         return;
     }
 
     if (description.value === null || description.value === "") {
-        display_toast("Description cannot be empty!", "error");
+        display_toast("Description cannot be empty!", "error", submit, handleSubmit);
         return;
     }
 
     if (content.value === null || content.value === "") {
-        display_toast("Content cannot be empty!", "error");
+        display_toast("Content cannot be empty!", "error", submit, handleSubmit);
         return;
     }
 
@@ -41,7 +41,7 @@ let handleSubmit = () => {
     save_article_info("description", description.value);
     save_article_info("content", content.value);
 
-    display_toast("Published Successfully", "success");
+    display_toast("Published Successfully", "success", submit, handleSubmit);
     return;
 };
 
@@ -51,13 +51,26 @@ function save_article_info(article_info, article_variable_value) {
     localStorage.setItem(article_info, JSON.stringify(titles));
 }
 
-submit.addEventListener("click", handleSubmit);
+if (submit) {
+    submit.addEventListener("click", handleSubmit);
+}
 
-function display_toast(msg, type) {
-    submit.removeEventListener("click", handleSubmit);
+export function display_toast(msg, type, button, functionType) {
+    button.removeEventListener("click", functionType);
 
     let div = document.createElement("div");
-    div.classList.add("show-tiast-animation", "mr-5", "w-[13%]", "self-end", "text-white", "py-5", "rounded-[10px]", "show-toast-animation", "overflow-hidden", "absolute");
+    div.classList.add(
+        "fixed", 
+        "bottom-10",
+        "right-0",
+        "z-50",
+        "w-[300px]", 
+        "text-white", 
+        "py-5", 
+        "rounded-[10px]", 
+        "show-toast-animation", 
+        "overflow-hidden"
+    );
 
     let toast_msg = document.createElement("p");
 
@@ -98,18 +111,17 @@ function display_toast(msg, type) {
     border_bottom_animation.classList.add("absolute", "bottom-0", "left-0", "h-1", "bg-white", "animate-toast-progress");
     div.appendChild(border_bottom_animation);
 
-    main.appendChild(div);
+    document.querySelector("main").appendChild(div);
 
     document.getElementById("delete-toast-btn").addEventListener("click", () => {
         div.remove();
-        submit.addEventListener("click", handleSubmit);
+        button.addEventListener("click", functionType);
     })
 
     if (div !== null) {
         setTimeout(() => {
-            console.log("REMOVED");
             div.remove();
-            submit.addEventListener("click", handleSubmit);
+            button.addEventListener("click", functionType);
         }, 5000);
     }
 }
@@ -130,7 +142,9 @@ let letter_counter = () => {
 let count = 0;
 const WORD_LIMIT = 500;
 
-word_count.textContent = `${count} / ${WORD_LIMIT} Words`;
+if (word_count) {
+    word_count.textContent = `${count} / ${WORD_LIMIT} Words`;
+}
 
 content.addEventListener("keydown", (e) => {
     let text = content.value.trim();
@@ -177,4 +191,6 @@ content.addEventListener("input", () => {
     updateCounter(words.length);
 });
 
-description.addEventListener("input", letter_counter);
+if (description) {
+    description.addEventListener("input", letter_counter);
+}
