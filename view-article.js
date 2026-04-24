@@ -71,187 +71,95 @@ let render_comments = () => {
 
     specificComments.forEach(text => {
         let p = document.createElement("p");
-        p.textContent = `Anonymous ${text}`;
+        let strong = document.createElement("strong");
+
+        p.textContent = `${text}`;
+        strong.textContent = `Anonymous: `;
         p.classList.add("bg-gray-100", "p-3", "mb-2", "rounded-md", "border-l-4", "border-blue-500", "w-6/12");
         comment_section.appendChild(p);
+        p.prepend(strong);
     });
 };
 
-let liked_before = false; // Boolean
+const getData = (key) => JSON.parse(localStorage.getItem(key)) || [];
+const saveData = (key, data) => localStorage.setItem(key, JSON.stringify(data));
 
-let like_btns = () => {
-    let likes = JSON.parse(localStorage.getItem("likes")) || [];
-    let liked = JSON.parse(localStorage.getItem("liked_before")) || [];
+const likes = JSON.parse(localStorage.getItem("likes")) || [];
+const liked_before = JSON.parse(localStorage.getItem("liked_before")) || [];
+const dislikes = JSON.parse(localStorage.getItem("dislikes")) || [];
+const disliked_before = JSON.parse(localStorage.getItem("disliked_before")) || [];
 
-    let dislikes = JSON.parse(localStorage.getItem("dislikes")) || [];
-    let disliked_before = JSON.parse(localStorage.getItem("disliked_before")) || [];
+const updateReactionUI = () => {
+    const likeSvg = like_btn.querySelector("svg");
+    const dislikeSvg = dislike_btn.querySelector("svg");
 
-    if (liked[index] === false && disliked_before[index] === false) {
-        likes[index]++;
-        liked[index] = true;
-        
-        localStorage.setItem("likes", JSON.stringify(likes));
-        localStorage.setItem("liked_before", JSON.stringify(liked));
+    likeSvg.classList.toggle("fill-sky-600", liked_before[index]);
+    likeSvg.classList.toggle("fill-black", !liked_before[index]);
 
-        like_btn.querySelector("svg").classList.remove("fill-black");
-        like_btn.querySelector("svg").classList.add("fill-sky-600");
+    dislikeSvg.classList.toggle("fill-sky-600", disliked_before[index]);
+    dislikeSvg.classList.toggle("fill-black", !disliked_before[index]);
 
-        like_count.textContent = `${likes[index]}`;
+    like_count.textContent = likes[index] || 0;
+    dislike_count.textContent = dislikes[index] || 0;
+};
 
-        return;
+const handleReaction = (type) => {
+    if (likes[index] === undefined) likes[index] = 0;
+    if (dislikes[index] === undefined) dislikes[index] = 0;
+
+    const isLike = type === "like";
+
+    let selfActive = isLike ? liked_before[index] : disliked_before[index];
+    let otherActive = isLike ? disliked_before[index] : liked_before[index];
+
+    if (selfActive) {
+        isLike ? likes[index]-- : dislikes[index]--;
+        isLike ? liked_before[index] = false : disliked_before[index] = false;
+    } else {
+        isLike ? likes[index]++ : dislikes[index]++;
+        isLike ? liked_before[index] = true : disliked_before[index] = true;
+
+        if (otherActive) {
+            isLike ? dislikes[index]-- : likes[index]--;
+            isLike ? disliked_before[index] = false : liked_before[index] = false;
+        }
     }
 
-    if (liked[index] === true) {
-        likes[index]--;
-        liked[index] = false;
-        
-        localStorage.setItem("likes", JSON.stringify(likes));
-        localStorage.setItem("liked_before", JSON.stringify(liked));
+    saveData("likes", likes);
+    saveData("dislikes", dislikes);
+    saveData("liked_before", liked_before);
+    saveData("disliked_before", disliked_before);
 
-        like_btn.querySelector("svg").classList.remove("fill-sky-600");
-        like_btn.querySelector("svg").classList.add("fill-black");
+    updateReactionUI();
+};
 
-        like_count.textContent = `${likes[index]}`;
-
-        return;
-    }
-
-    if (liked[index] === false && disliked_before[index] === true) {
-        likes[index]++;
-        dislikes[index]--;
-
-        disliked_before[index] = false;
-        liked[index] = true;
-
-        localStorage.setItem("likes", JSON.stringify(likes));
-        localStorage.setItem("liked_before", JSON.stringify(liked));
-        localStorage.setItem("dislikes", JSON.stringify(dislikes));
-        localStorage.setItem("disliked_before", JSON.stringify(disliked_before));
-
-        dislike_btn.querySelector("svg").classList.remove("fill-sky-600");
-        dislike_btn.querySelector("svg").classList.add("fill-black");
-
-        like_btn.querySelector("svg").classList.remove("fill-black");
-        like_btn.querySelector("svg").classList.add("fill-sky-600");
-
-        like_count.textContent = `${likes[index]}`;
-        dislike_count.textContent = `${dislikes[index]}`;
-
-        return;
+const initIndex = (array, defaultValue) => {
+    if (array[index] === undefined || array[index] === null) {
+        array[index] = defaultValue;
     }
 };
 
-let dislike_btns = () => {
-    let likes = JSON.parse(localStorage.getItem("likes")) || [];
-    let liked = JSON.parse(localStorage.getItem("liked_before")) || [];
+initIndex(likes, 0);
+initIndex(dislikes, 0);
+initIndex(liked_before, false);
+initIndex(disliked_before, false);
 
-    let dislikes = JSON.parse(localStorage.getItem("dislikes")) || [];
-    let disliked_before = JSON.parse(localStorage.getItem("disliked_before")) || [];
+const render_likes = () => {
+    const likeSvg = like_btn.querySelector("svg");
+    const dislikeSvg = dislike_btn.querySelector("svg");
 
-    if (disliked_before[index] === false && liked[index] === false) {
-        dislikes[index]++;
-        disliked_before[index] = true;
-        
-        localStorage.setItem("dislikes", JSON.stringify(dislikes));
-        localStorage.setItem("disliked_before", JSON.stringify(disliked_before));
+    likeSvg.classList.toggle("fill-sky-600", liked_before[index]);
+    likeSvg.classList.toggle("fill-black", !liked_before[index]);
 
-        dislike_btn.querySelector("svg").classList.remove("fill-black");
-        dislike_btn.querySelector("svg").classList.add("fill-sky-600");
+    dislikeSvg.classList.toggle("fill-sky-600", disliked_before[index]);
+    dislikeSvg.classList.toggle("fill-black", !disliked_before[index]);
 
-        dislike_count.textContent = `${dislikes[index]}`;
-
-        return;
-    }
-
-    if (disliked_before[index] === true) {
-        dislikes[index]--;
-        disliked_before[index] = false;
-        
-        localStorage.setItem("dislikes", JSON.stringify(dislikes));
-        localStorage.setItem("disliked_before", JSON.stringify(disliked_before));
-
-        dislike_btn.querySelector("svg").classList.remove("fill-sky-600");
-        dislike_btn.querySelector("svg").classList.add("fill-black");
-
-        dislike_count.textContent = `${dislikes[index]}`;
-
-        return;
-    }
-
-    if (liked[index] === true && disliked_before[index] === false) {
-        likes[index]--;
-        dislikes[index]++;
-
-        disliked_before[index] = true;
-        liked[index] = false;
-
-        localStorage.setItem("likes", JSON.stringify(likes));
-        localStorage.setItem("liked_before", JSON.stringify(liked));
-        localStorage.setItem("dislikes", JSON.stringify(dislikes));
-        localStorage.setItem("disliked_before", JSON.stringify(disliked_before));
-
-        dislike_btn.querySelector("svg").classList.remove("fill-black");
-        dislike_btn.querySelector("svg").classList.add("fill-sky-600");
-
-        like_btn.querySelector("svg").classList.remove("fill-sky-600");
-        like_btn.querySelector("svg").classList.add("fill-black");
-
-        like_count.textContent = `${likes[index]}`;
-        dislike_count.textContent = `${dislikes[index]}`;
-
-        return;
-    }
-}
-
-let render_likes = () => {
-    let likes = JSON.parse(localStorage.getItem("likes")) || [];
-    let liked = JSON.parse(localStorage.getItem("liked_before")) || [];
-
-    let dislikes = JSON.parse(localStorage.getItem("dislikes")) || [];
-    let disliked = JSON.parse(localStorage.getItem("disliked_before")) || [];
-
-    if (likes[index] === undefined || likes[index] === null ||
-        dislikes[index] === undefined || dislikes[index] === null
-    ) {
-        likes[index] = 0;
-        dislikes[index] = 0;
-
-        localStorage.setItem("likes", JSON.stringify(likes));
-        localStorage.setItem("dislikes", JSON.stringify(dislikes));
-    }
-
-    if (liked[index] === undefined || liked[index] === null ||
-        disliked[index] === undefined || disliked[index] === null
-    ) {
-        liked[index] = false;
-        disliked[index] = false;
-
-        localStorage.setItem("liked_before", JSON.stringify(liked));
-        localStorage.setItem("disliked_before", JSON.stringify(disliked));
-    }
-
-    if (liked[index] === false) {
-        like_btn.querySelector("svg").classList.remove("fill-sky-600");
-        like_btn.querySelector("svg").classList.add("fill-black");
-    } else {
-        like_btn.querySelector("svg").classList.remove("fill-black");
-        like_btn.querySelector("svg").classList.add("fill-sky-600");
-    }
-
-    if (disliked[index] === false) {
-        dislike_btn.querySelector("svg").classList.remove("fill-sky-600");
-        dislike_btn.querySelector("svg").classList.add("fill-black");
-    } else {
-        dislike_btn.querySelector("svg").classList.remove("fill-black");
-        dislike_btn.querySelector("svg").classList.add("fill-sky-600");
-    }
-
-    like_count.textContent = `${likes[index]}`;
-    dislike_count.textContent = `${dislikes[index]}`;
+    like_count.textContent = likes[index];
+    dislike_count.textContent = dislikes[index];
 };
 
-like_btn.addEventListener("click", like_btns);
-dislike_btn.addEventListener("click", dislike_btns);
+like_btn.addEventListener("click", () => handleReaction("like"));
+dislike_btn.addEventListener("click", () => handleReaction("dislike"));
 
 comment_btn.addEventListener("click", handle_comment);
 
